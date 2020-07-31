@@ -17,6 +17,7 @@ form.addEventListener('submit', event => {
             const response = JSON.parse(xhr.responseText);
 
             if (response.success === true) {
+                signin.classList.remove('signin_active');
                 const userId = response['user_id'];
                 localStorage.setItem('id', userId);
                 welcomeMsg.classList.add('welcome_active');
@@ -32,4 +33,5 @@ form.addEventListener('submit', event => {
 if (localStorage.getItem('id')) {
     welcomeMsg.classList.add('welcome_active');
     idElem.textContent = localStorage.getItem('id');
+    signin.classList.remove('signin_active');
 }
